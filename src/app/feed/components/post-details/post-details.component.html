@@ -1,4 +1,11 @@
 <div>
   <p>{{ post.title }}</p>
-  <button (click)="deletePhoto()">delete</button>
+  <button class="button" (click)="deletePhoto()">delete</button>
+  <button
+    [routerLink]="['/feed', post.id, 'edit']"
+    mat-button
+    (click)="editPhoto()"
+  >
+    edit
+  </button>
 </div>

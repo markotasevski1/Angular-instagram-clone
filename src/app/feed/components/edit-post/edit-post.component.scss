@@ -1,0 +1,34 @@
+.form-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 31.25rem;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  row-gap: 50px;
+}
+input {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+}
+
+.invalid {
+  border: 1px solid red;
+}
+button {
+  padding: 10px;
+  width: 100px;
+  border-radius: 10%;
+}
+
+.form-group {
+  width: 100%;
+}

@@ -5,6 +5,7 @@ import { ErrorDialogComponent } from './components/error-dialog/error-dialog.com
 import { ButtonsComponent } from './components/buttons/buttons.component';
 
 import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,11 +13,12 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
     ErrorDialogComponent,
     ButtonsComponent,
   ],
-  imports: [CommonModule, AngularMaterialModule],
+  imports: [CommonModule, AngularMaterialModule, ReactiveFormsModule],
   exports: [
     AngularMaterialModule,
     ErrorDialogComponent,
     ButtonsComponent,
+    ReactiveFormsModule,
     SuccessDialogComponent,
   ],
 })

@@ -1,0 +1,14 @@
+<div class="nav-menu-wrapper">
+  <div class="nav-items-wrapper">
+    <div class="nav-menu-inner-content">
+      <a routerLink="/"> <img [src]="mcaLogoUrl" /></a>
+      <img
+        [src]="hamburgerUrl"
+        (click)="toggleMenu()"
+        class="hamburger-menu-icon"
+      />
+    </div>
+    <app-nav-items [isMenuOpen]="isMenuOpen"></app-nav-items>
+    
+  </div>
+</div>

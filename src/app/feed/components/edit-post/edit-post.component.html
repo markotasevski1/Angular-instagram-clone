@@ -1,6 +1,6 @@
 <div class="form-wrapper">
   <div class="form-content-wrapper">
-    <h1>Add/edit post</h1>
+    <h1>{{ image.title }}</h1>
     <form class="form" (ngSubmit)="save()" [formGroup]="imageForm">
       <div class="form-group">
         <label for="albumId">Album ID:</label>
@@ -8,6 +8,7 @@
           id="albumId"
           type="number"
           formControlName="albumId"
+          placeholder="albumId"
           [ngClass]="
             !imageForm.controls['albumId'].valid &&
             imageForm.controls['albumId'].touched
@@ -31,6 +32,7 @@
           id="title"
           type="text"
           formControlName="title"
+          placeholder="title"
           [ngClass]="
             !imageForm.controls['title'].valid &&
             imageForm.controls['title'].touched

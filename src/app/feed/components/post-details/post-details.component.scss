@@ -16,6 +16,9 @@
 .post-details-title {
   font-size: 1.5rem;
 }
+.post-details-title {
+  padding: 0 1.875rem;
+}
 .ids-wrapper {
   display: flex;
   align-items: center;
@@ -25,7 +28,7 @@
 .post-id {
   font-size: 1.25rem;
 }
-/* Base button styles */
+
 .button {
   margin: 10px;
   display: inline-block;
@@ -38,24 +41,23 @@
   cursor: pointer;
 }
 
-/* Button with background color */
+
 .button.primary {
   background-color: #3498db;
   color: #fff;
 }
 
-/* Button hover effect */
+
 .button:hover {
   background-color: #2980b9;
 }
 
-/* Button with different size */
+
 .button.large {
   padding: 15px 30px;
   font-size: 18px;
 }
 
-/* Disabled button */
 .button.disabled {
   opacity: 0.5;
   pointer-events: none;

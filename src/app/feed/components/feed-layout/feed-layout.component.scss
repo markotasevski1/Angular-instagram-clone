@@ -23,7 +23,36 @@
   text-align: center;
   font-weight: bold;
 }
+
 a {
   text-decoration: none;
   color: white;
+}
+
+.feed-layout-wrapper {
+  max-width: 56.25rem;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.add-post-button {
+  border: 2px solid black;
+  color: black;
+  padding: 10px 20px;
+  display: inline-block;
+  background-color: #ffffff;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

@@ -37,21 +37,7 @@ export class PhotosService {
   deletePhoto(id: number) {
     return this.httpClient.delete<IPost>(this.photoUrl + id.toString());
   }
+  savePhoto(photo: IPost) {
+    return this.httpClient.post<IPost>(this.photoUrl, photo);
+  }
 }
-// export class PhotosService {
-//   photoUrl: string = 'https://jsonplaceholder.typicode.com/photos/';
-
-//   constructor(private httpClient: HttpClient) {}
-//   getAllPhotos(): Observable<IPost[]> {
-//     return this.httpClient.get<IPost[]>(this.photoUrl).pipe();
-//   }
-//   getPhotoById(id: number): Observable<IPost> {
-//     return this.httpClient.get<IPost>(this.photoUrl + id.toString());
-//   }
-//   savePhoto(photo: IPost) {
-//     return this.httpClient.post<IPost>(this.photoUrl, photo);
-//   }
-//   deletePhoto(id: number) {
-//     return this.httpClient.delete<IPost>(this.photoUrl + id.toString());
-//   }
-// }

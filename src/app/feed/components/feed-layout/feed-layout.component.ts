@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   templateUrl: './feed-layout.component.html',
   styleUrls: ['./feed-layout.component.scss'],
 })
-export class FeedLayoutComponent implements OnInit {
+export class FeedLayoutComponent implements OnInit, AfterViewInit {
   photos!: IPost[];
 
   displayedColumns: string[] = ['albumId', 'id', 'title', 'url'];
@@ -20,14 +20,21 @@ export class FeedLayoutComponent implements OnInit {
     this.photos
   );
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   constructor(private photosService: PhotosService) {}
 
   ngOnInit(): void {
+    this.dataSource = new MatTableDataSource<IPost>([]);
+
     this.photosService.users.subscribe((data) => {
       this.photos = data;
-      this.dataSource = new MatTableDataSource<IPost>(this.photos);
+      this.dataSource.data = this.photos;
     });
 
     this.photosService.loadAll();
+  }
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 }

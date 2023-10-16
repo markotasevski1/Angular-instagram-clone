@@ -29,7 +29,15 @@
       [(ngModel)]="post.url"
       name="url"
       required
+      #templateUrl="ngModel"
+      [ngClass]="{
+        'is-invalid': templateUrl.touched && !templateUrl.valid,
+        'is-valid': templateUrl.valid
+      }"
     />
+    <span *ngIf="templateUrl.errors && templateUrl.touched"
+      >Please fill this field with url</span
+    >
 
     <label for="thumbnailUrl">Thumbnail url:</label>
     <input
@@ -40,7 +48,14 @@
       [(ngModel)]="post.thumbnailUrl"
       name="thumbnailUrl"
       required
+      #templateUrlVar="ngModel"
+      [ngClass]="{
+        'is-invalid': templateUrlVar.touched && !templateUrlVar.valid
+      }"
     />
+    <span *ngIf="templateUrlVar.errors && templateUrlVar.touched"
+      >Please fill this field with url</span
+    >
 
     <button
       type="submit"

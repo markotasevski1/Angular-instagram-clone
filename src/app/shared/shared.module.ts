@@ -6,6 +6,7 @@ import { ButtonsComponent } from './components/buttons/buttons.component';
 
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ErrorDialogComponent,
     ButtonsComponent,
     ReactiveFormsModule,
+    FormsModule,
     SuccessDialogComponent,
   ],
 })

@@ -1,4 +1,9 @@
 <div class="feed-layout-wrapper">
+  <p>
+    <a [routerLink]="['/feed', 'add-post']" class="add-post-button">
+      Add post</a
+    >
+  </p>
   <table
     mat-table
     [dataSource]="dataSource"

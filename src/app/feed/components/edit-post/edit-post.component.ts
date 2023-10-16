@@ -1,5 +1,5 @@
 import { PhotosService } from './../../service/photos.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IPost } from '../../models/post';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './edit-post.component.html',
   styleUrls: ['./edit-post.component.scss'],
 })
-export class EditPostComponent {
+export class EditPostComponent implements OnInit {
   imageForm!: FormGroup;
   image: IPost = {
     albumId: 0,
@@ -20,12 +20,25 @@ export class EditPostComponent {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private photosService: PhotosService,
     private fb: FormBuilder
   ) {}
+  ngOnInit(): void {
+    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    if (id) {
+      this.getPost(id);
+    }
+  }
+  getPost(id: number): void {
+    this.photosService.getPhotoById(id).subscribe({
+      next: (post) => (this.image = post),
+    });
+  }
+
 
   save() {
+    console.log(this.image)
     this.photosService.savePhoto(this.image).subscribe({
       next: (data) => {
         console.log('successful added');

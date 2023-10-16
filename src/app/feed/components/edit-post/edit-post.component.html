@@ -1,6 +1,6 @@
 <div class="form-wrapper">
   <div class="form-content-wrapper">
-    <h1>Add/edit post</h1>
+    <h1>{{ image.title }}</h1>
     <form class="form" (ngSubmit)="save()" [formGroup]="imageForm">
       <div class="form-group">
         <label for="albumId">Album ID:</label>
@@ -101,4 +101,7 @@
       </div>
     </form>
   </div>
+</div>
+<div>
+  {{ image.id }}
 </div>

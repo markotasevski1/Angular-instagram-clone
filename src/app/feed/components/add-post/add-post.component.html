@@ -1,0 +1,57 @@
+<div>
+  <form (ngSubmit)="submitForm()" class="custom-form" #form="ngForm">
+    <label for="albumId">Album id:</label>
+    <input
+      id="albumId"
+      type="number"
+      class="form-input"
+      [(ngModel)]="post.albumId"
+      name="albumId"
+      required
+    />
+
+    <label for="title">Title:</label>
+    <input
+      id="title"
+      type="text"
+      class="form-input"
+      [(ngModel)]="post.title"
+      name="title"
+      required
+    />
+
+    <label for="url">Url:</label>
+    <input
+      id="url"
+      type="text"
+      pattern="https://.*"
+      class="form-input"
+      [(ngModel)]="post.url"
+      name="url"
+      required
+    />
+
+    <label for="thumbnailUrl">Thumbnail url:</label>
+    <input
+      id="thumbnailUrl"
+      type="url"
+      pattern="https://.*"
+      class="form-input"
+      [(ngModel)]="post.thumbnailUrl"
+      name="thumbnailUrl"
+      required
+    />
+
+    <button
+      type="submit"
+      class="submit-button"
+      [disabled]="!form.valid"
+      [ngClass]="{
+        'enabled-button': form.valid,
+        'disabled-button': !form.valid
+      }"
+    >
+      {{ form.valid ? "Submit form" : "Form Invalid" }}
+    </button>
+  </form>
+</div>

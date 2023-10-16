@@ -32,7 +32,7 @@ export class PostDetailsComponent {
   deletePhoto() {
     this.photosService.deletePhoto(this.post.id).subscribe({
       next: (data) => {
-        console.log('Successfuly deleted item');
+        console.log('Successfully deleted item');
         this.router.navigate(['/feed']);
       },
       error: (err) => {

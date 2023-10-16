@@ -40,15 +40,5 @@ export class PostDetailsComponent {
       },
     });
   }
-  editPhoto(){
-    this.photosService.savePhoto(this.post).subscribe({
-      next: (data) => {
-        console.log('Successfuly deleted item');
-        this.router.navigate(['/feed']);
-      },
-      error: (err) => {
-        console.log('Error deleting item');
-      },
-    }) 
-  }
+
 }

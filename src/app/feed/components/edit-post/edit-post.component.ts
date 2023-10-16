@@ -21,11 +21,42 @@ export class EditPostComponent {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private PhotosService: PhotosService,
+    private photosService: PhotosService,
     private fb: FormBuilder
   ) {}
 
-  save(){
-    
+  save() {
+    this.photosService.savePhoto(this.image).subscribe({
+      next: (data) => {
+        console.log('successful added');
+        this.router.navigate(['/feed']);
+      },
+      error: (error) => {
+        console.log('Error update or add.');
+        this.router.navigate(['/feed']);
+      },
+    });
   }
 }
+
+// save(){
+
+//   this.imageService.svePhoto(this.image).subscribe({
+//   next: (data)=> {
+//       console.log("Sucsess Update, Od Add");
+//       const dialogRef = this.dialog.open(SuccessfullySubmittedDataComponent);
+//       dialogRef.afterClosed().subscribe(()=>{
+//         if(data.id > 5000){
+//           this.router.navigate(["/photos"]);
+//         }else{
+//           this.router.navigate(['/photos',data.id]);
+//         }
+
+//       });
+//   },
+//   error: (error)=> {
+//     console.log("Error update or add.");
+//     this.dialog.open(ErrorSubmitDataComponent,{data: {error:error.message}});
+//     }
+//   });
+// }

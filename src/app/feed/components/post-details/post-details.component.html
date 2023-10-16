@@ -1,11 +1,19 @@
-<div>
-  <p>{{ post.title }}</p>
-  <button class="button" (click)="deletePhoto()">delete</button>
-  <button
-    [routerLink]="['/feed', post.id, 'edit']"
-    mat-button
-    (click)="editPhoto()"
-  >
-    edit
-  </button>
+<div class="post-details-wrapper">
+  <div class="post-details-inner-wrapper">
+    <div class="post-content-wrapper">
+      <h2 class="post-details-title">{{ post.title }}</h2>
+      <img [src]="post.url" class="post-details-image" />
+      <div class="ids-wrapper">
+        <p class="post-id">id: {{ post.id }}</p>
+        <p class="post-id">album id: {{ post.albumId }}</p>
+      </div>
+    </div>
+
+    <div class="buttons-wrapper">
+      <button class="button" (click)="deletePhoto()">delete</button>
+      <button [routerLink]="['/feed', post.id, 'edit']" class="button">
+        edit
+      </button>
+    </div>
+  </div>
 </div>

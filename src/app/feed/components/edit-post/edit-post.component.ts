@@ -50,7 +50,7 @@ export class EditPostComponent implements OnInit {
 
   save() {
     console.log(this.image);
-    this.photosService.savePhoto(this.image).subscribe({
+    this.photosService.saveEditedPhoto(this.image).subscribe({
       next: (data) => {
         console.log('successful added');
         this.router.navigate(['/feed']);

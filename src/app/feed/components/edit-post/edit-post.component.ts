@@ -43,8 +43,14 @@ export class EditPostComponent implements OnInit {
     }
   }
   getPost(id: number): void {
-    this.photosService.getPhotoById(id).subscribe({
-      next: (post) => (this.image = post),
+    this.photosService.getPhotoById(id).subscribe((item) => {
+      this.image = item;
+      this.imageForm.setValue({
+        albumId: this.image.albumId,
+        title: this.image.title,
+        url: this.image.url,
+        thumbnailUrl: this.image.thumbnailUrl,
+      });
     });
   }
 

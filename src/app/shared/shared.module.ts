@@ -7,12 +7,14 @@ import { ButtonsComponent } from './components/buttons/buttons.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { QuestionComponent } from './components/question/question.component';
 
 @NgModule({
   declarations: [
     SuccessDialogComponent,
     ErrorDialogComponent,
     ButtonsComponent,
+    QuestionComponent,
   ],
   imports: [CommonModule, AngularMaterialModule, ReactiveFormsModule],
   exports: [
@@ -22,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     SuccessDialogComponent,
+    QuestionComponent,
   ],
 })
 export class SharedModule {}

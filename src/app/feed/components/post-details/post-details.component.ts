@@ -1,8 +1,10 @@
 import { PhotosService } from './../../service/photos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 import { IPost } from '../../models/post';
+import { QuestionComponent } from 'src/app/shared/components/question/question.component';
 
 @Component({
   selector: 'app-post-details',
@@ -14,7 +16,8 @@ export class PostDetailsComponent {
   constructor(
     private activatedRoute: ActivatedRoute,
     private photosService: PhotosService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +31,17 @@ export class PostDetailsComponent {
       next: (post) => (this.post = post),
     });
   }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(QuestionComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      if(result){
+        this.deletePhoto();
+      }
+    });
+    }
 
   deletePhoto() {
     this.photosService.deletePhoto(this.post.id).subscribe({
